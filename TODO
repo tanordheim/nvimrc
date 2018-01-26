@@ -1,0 +1,3 @@
+- Make listchars prettier
+- More airline config, see https://github.com/Netherdrake/Dotfiles/blob/master/config/nvim/init.vim#L231
+- Make colorcolumn prettier
