@@ -158,6 +158,9 @@ map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
 
+" configure UltiSnips keybindings.
+let g:UltiSnipsExpandTrigger = '<C-j>'
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 " GO LANGUAGE SETTINGS
