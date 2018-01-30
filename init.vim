@@ -168,6 +168,9 @@ let g:UltiSnipsExpandTrigger = '<C-j>'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:go_fmt_command = "goimports"
+let g:go_list_type = "quickfix"
+let g:go_metalinter_autosave = 1
+let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'errcheck']
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
@@ -182,4 +185,5 @@ augroup FileType go
 	au FileType go nmap <leader>b <Plug>(go-build)
 	au FileType go nmap <leader>t <Plug>(go-test)
 	au FileType go nmap <leader>tf <Plug>(go-test-func)
+	au FileType go nmap <leader>l <Plug>(go-metalinter)
 augroup end
