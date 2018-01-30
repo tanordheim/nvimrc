@@ -67,7 +67,7 @@ set undolevels=100
 set wildignore+=*/.git/*,*/node_modules/*,*/vendor/*,*/bin/*,*/obj/*
 
 " set <leader>.
-let mapleader=","
+let mapleader=','
 
 " show trailing whitespaces.
 set list
@@ -78,12 +78,12 @@ syntax on
 colorscheme base16-monokai
 
 " configure ctrlp.
-let g:ctrlp_map = "<c-p>"
+let g:ctrlp_map = '<c-p>'
 nnoremap <leader>p :CtrlPBuffer<CR>
 
 " enable and configure airline.
-let g:airline_theme="base16"
-let g:airline_powerline_fonts=1
+let g:airline_theme = 'base16'
+let g:airline_powerline_fonts = 1
 let g:airline#extensions#syntastic#enabled = 1
 
 " configure fugitive shortcuts.
@@ -167,20 +167,23 @@ let g:UltiSnipsExpandTrigger = '<C-j>'
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:go_fmt_command = "goimports"
-let g:go_list_type = "quickfix"
+let g:go_fmt_command = 'goimports'
+let g:go_list_type = 'quickfix'
 let g:go_metalinter_autosave = 1
-let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'errcheck']
+let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+let g:go_addtags_transform = 'camelcase'
+let g:go_def_mode = 'guru'
 
 augroup FileType go
 	au!
+	autocmd FileType go command! -bang GoAlternateVerticalSplit call go#alternate#Switch(<bang>0, 'vsplit')
 	au FileType go nmap <leader>gd <Plug>(go-def-vertical)
-	au FileType go nmap <leader>gv <Plug>(go-doc-vertical)
+	au FileType go nmap <leader>ga :GoAlternateVerticalSplit<CR>
 	au FileType go nmap <leader>i <Plug>(go-info)
 	au FileType go nmap <leader>b <Plug>(go-build)
 	au FileType go nmap <leader>t <Plug>(go-test)
