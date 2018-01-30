@@ -18,6 +18,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " core plugins.
 Plugin 'flazz/vim-colorschemes'
+Plugin 'chriskempson/base16-vim'
 Plugin 'kien/ctrlp.vim'
 
 " main plugins.
@@ -33,12 +34,11 @@ Plugin 'majutsushi/tagbar'
 " language plugins.
 Plugin 'fatih/vim-go'
 
-" autocomplete plugins.
+" autocomplete, snippets and formatting.
 Plugin 'Valloric/YouCompleteMe'
-
-" snippet plugins.
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'AndrewRadev/splitjoin.vim'
 
 " end the vundle loader and enable filetype detection again.
 call vundle#end()
@@ -75,15 +75,14 @@ set listchars=tab:▸\ ,trail:¬,nbsp:.,extends:❯,precedes:❮
 
 " enable syntax highlighting and set a color scheme.
 syntax on
-colorscheme molokai
+colorscheme base16-monokai
 
 " configure ctrlp.
 let g:ctrlp_map = "<c-p>"
-nnoremap <leader>t :CtrlPMRU<CR>
-nnoremap <leader>b :CtrlPBuffer<CR>
+nnoremap <leader>p :CtrlPBuffer<CR>
 
 " enable and configure airline.
-let g:airline_theme="powerlineish"
+let g:airline_theme="base16"
 let g:airline_powerline_fonts=1
 let g:airline#extensions#syntastic#enabled = 1
 
@@ -179,4 +178,5 @@ augroup FileType go
 	au FileType go nmap <leader>i <Plug>(go-info)
 	au FileType go nmap <leader>b <Plug>(go-build)
 	au FileType go nmap <leader>t <Plug>(go-test)
+	au FileType go nmap <leader>tf <Plug>(go-test-func)
 augroup end
