@@ -154,6 +154,11 @@ set title
 set visualbell
 set noerrorbells
 
+" quickfix navigation.
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 " GO LANGUAGE SETTINGS
