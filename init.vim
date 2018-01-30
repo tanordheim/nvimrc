@@ -24,6 +24,7 @@ Plugin 'kien/ctrlp.vim'
 " main plugins.
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'edkolev/tmuxline.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-syntastic/syntastic'
 
@@ -85,6 +86,7 @@ nnoremap <leader>p :CtrlPBuffer<CR>
 let g:airline_theme = 'base16'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#tmuxline#enabled = 0
 
 " configure fugitive shortcuts.
 nnoremap <leader>s :Gstatus<CR>
