@@ -10,6 +10,7 @@ My NeoVim configuration.
   - `pip2 install --upgrade neovim`
   - `pip3 install --upgrade neovim`
 - exuberant-ctags
+- cmake
 - Mono
 - Node.js and npm
   - `typescript` package (`npm install -g typescript`)
