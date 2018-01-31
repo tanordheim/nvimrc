@@ -76,6 +76,7 @@ set listchars=tab:▸\ ,trail:¬,nbsp:.,extends:❯,precedes:❮
 
 " enable syntax highlighting and set a color scheme.
 syntax on
+let base16colorspace = 256
 colorscheme base16-monokai
 
 " configure ctrlp.
