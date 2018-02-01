@@ -72,8 +72,7 @@ let mapleader=','
 
 " show trailing whitespaces.
 set list
-set listchars=nbsp:⦸,tab:▷\ ,extends:»,precedes:«,trail:•
-	" adsa
+set listchars=nbsp:⦸,tab:\ \ ,extends:»,precedes:«,trail:•
 
 " enable syntax highlighting and set a color scheme.
 syntax on
