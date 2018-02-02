@@ -131,6 +131,9 @@ set smartcase
 set hlsearch
 set incsearch
 
+" case insensitive completion of filenames.
+set wildignorecase
+
 " disable highlighting.
 map <silent> <leader><CR> :noh<CR>
 
@@ -163,6 +166,9 @@ nnoremap <leader>a :cclose<CR>
 
 " configure UltiSnips keybindings.
 let g:UltiSnipsExpandTrigger = '<C-j>'
+
+" jump to previous buffer.
+nnoremap <leader>, :bprevious<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
