@@ -27,6 +27,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-syntastic/syntastic'
+Plugin 'jiangmiao/auto-pairs'
 
 " ui/panel plugins.
 Plugin 'scrooloose/nerdtree'
