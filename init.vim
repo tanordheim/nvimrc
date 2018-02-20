@@ -26,6 +26,7 @@ Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'w0rp/ale'
 Plugin 'jiangmiao/auto-pairs'
 
 " ui/panel plugins.
@@ -89,6 +90,7 @@ nnoremap <leader>p :CtrlPBuffer<CR>
 let g:airline_theme = 'base16'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tmuxline#enabled = 0
+let g:airline#extensions#ale#enabled = 1
 
 " configure fugitive shortcuts.
 nnoremap <leader>s :Gstatus<CR>
@@ -168,6 +170,10 @@ nnoremap <leader>a :cclose<CR>
 
 " configure UltiSnips keybindings.
 let g:UltiSnipsExpandTrigger = '<C-j>'
+
+" configure ale.
+let g:ale_sign_error = '⤫'
+let g:ale_sign_warning = '⚠'
 
 " configure deoplete.
 let g:deoplete#enable_at_startup = 1
