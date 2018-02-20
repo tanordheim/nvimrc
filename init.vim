@@ -121,6 +121,7 @@ set backspace=indent,eol,start
 " set tab sizes and indenting.
 set tabstop=4
 set shiftwidth=4
+set expandtab
 set autoindent
 
 " insert tabs on the start of the line according to shiftwidth, not tabstop.
