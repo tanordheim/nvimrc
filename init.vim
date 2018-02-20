@@ -167,9 +167,6 @@ nnoremap <leader>a :cclose<CR>
 " configure UltiSnips keybindings.
 let g:UltiSnipsExpandTrigger = '<C-j>'
 
-" jump to previous buffer.
-nnoremap <leader>, :bprevious<CR>
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 " GO LANGUAGE SETTINGS
