@@ -36,7 +36,9 @@ Plugin 'majutsushi/tagbar'
 Plugin 'fatih/vim-go'
 
 " autocomplete, snippets and formatting.
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
+Plugin 'Shougo/deoplete.nvim'
+Plugin 'zchee/deoplete-go'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'AndrewRadev/splitjoin.vim'
@@ -166,6 +168,13 @@ nnoremap <leader>a :cclose<CR>
 
 " configure UltiSnips keybindings.
 let g:UltiSnipsExpandTrigger = '<C-j>'
+
+" configure deoplete.
+let g:deoplete#enable_at_startup = 1
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
+" disable preview window when completing.
+set completeopt-=preview
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
