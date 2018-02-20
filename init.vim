@@ -26,7 +26,6 @@ Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'tpope/vim-fugitive'
-Plugin 'vim-syntastic/syntastic'
 Plugin 'jiangmiao/auto-pairs'
 
 " ui/panel plugins.
@@ -87,7 +86,6 @@ nnoremap <leader>p :CtrlPBuffer<CR>
 " enable and configure airline.
 let g:airline_theme = 'base16'
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#tmuxline#enabled = 0
 
 " configure fugitive shortcuts.
