@@ -202,7 +202,6 @@ let g:go_highlight_extra_types = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_addtags_transform = 'camelcase'
-let g:go_auto_type_info = 1
 
 " configure ale-linting of go files.
 let g:ale_linters = { 'go': [] }
