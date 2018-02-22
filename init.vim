@@ -163,9 +163,7 @@ set title
 set visualbell
 set noerrorbells
 
-" quickfix navigation.
-map <C-n> :cnext<CR>
-map <C-m> :cprevious<CR>
+" quickfix configuration.
 nnoremap <leader>a :cclose<CR>
 
 " configure UltiSnips keybindings.
@@ -174,6 +172,8 @@ let g:UltiSnipsExpandTrigger = '<C-j>'
 " configure ale.
 let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
+map <C-n> :ALENextWrap<CR>
+map <C-m> :ALEPreviousWrap<CR>
 
 " configure deoplete.
 let g:deoplete#enable_at_startup = 1
