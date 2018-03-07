@@ -182,6 +182,9 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " disable preview window when completing.
 set completeopt-=preview
 
+" set how much to scroll when reaching the bottom of the buffer.
+set scrolloff=10
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 " GO LANGUAGE SETTINGS
