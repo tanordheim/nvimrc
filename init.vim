@@ -35,6 +35,8 @@ Plugin 'majutsushi/tagbar'
 
 " language plugins.
 Plugin 'fatih/vim-go'
+Plugin 'mhartington/nvim-typescript'
+Plugin 'HerringtonDarkholme/yats.vim'
 
 " autocomplete, snippets and formatting.
 " Plugin 'Valloric/YouCompleteMe'
