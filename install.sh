@@ -18,6 +18,3 @@ rm -f ~/.config/nvim/init.vim && ln -sf $BASEDIR/init.vim ~/.config/nvim/init.vi
 
 # Install the required plugins with Vundle.
 nvim +PluginInstall +qall
-
-# Configure YouCompleteMe
-# (cd ~/.vim/bundle/YouCompleteMe && ./install.py --cs-completer --go-completer --clang-completer --js-completer)

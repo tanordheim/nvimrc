@@ -13,6 +13,9 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+" let ale and syntastic coexist without warnings.
+let g:ale_emit_conflict_warnings = 0
+
 " let Vundle manage Vundle, required.
 Plugin 'VundleVim/Vundle.vim'
 
@@ -27,6 +30,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'w0rp/ale'
+Plugin 'vim-syntastic/syntastic'
 Plugin 'jiangmiao/auto-pairs'
 
 " ui/panel plugins.
@@ -37,9 +41,9 @@ Plugin 'majutsushi/tagbar'
 Plugin 'fatih/vim-go'
 Plugin 'mhartington/nvim-typescript'
 Plugin 'HerringtonDarkholme/yats.vim'
+Plugin 'OmniSharp/omnisharp-vim'
 
 " autocomplete, snippets and formatting.
-" Plugin 'Valloric/YouCompleteMe'
 Plugin 'Shougo/deoplete.nvim'
 Plugin 'zchee/deoplete-go'
 Plugin 'SirVer/ultisnips'
@@ -93,6 +97,7 @@ let g:airline_theme = 'base16'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tmuxline#enabled = 0
 let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#syntastic#enabled = 1
 
 " configure fugitive shortcuts.
 nnoremap <leader>s :Gstatus<CR>
@@ -208,19 +213,62 @@ let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_addtags_transform = 'camelcase'
 
+" disable syntastic linting of go files.
+let g:syntastic_go_checkers = []
+
 " configure ale-linting of go files.
 let g:ale_linters = { 'go': [] }
 let g:ale_linters = { 'go': ['gometalinter'] }
 let g:ale_go_gometalinter_options = '--fast'
 
 augroup FileType go
-	au!
-	autocmd FileType go command! -bang GoAlternateVerticalSplit call go#alternate#Switch(<bang>0, 'vsplit')
-	au FileType go nmap <leader>gd <Plug>(go-def-vertical)
-	au FileType go nmap <leader>ga :GoAlternateVerticalSplit<CR>
-	au FileType go nmap <leader>i <Plug>(go-info)
-	au FileType go nmap <leader>b <Plug>(go-build)
-	au FileType go nmap <leader>t <Plug>(go-test)
-	au FileType go nmap <leader>tf <Plug>(go-test-func)
-	au FileType go nmap <leader>l <Plug>(go-metalinter)
+    au!
+    autocmd FileType go command! -bang GoAlternateVerticalSplit call go#alternate#Switch(<bang>0, 'vsplit')
+    au FileType go nmap <leader>gd <Plug>(go-def-vertical)
+    au FileType go nmap <leader>ga :GoAlternateVerticalSplit<CR>
+    au FileType go nmap <leader>i <Plug>(go-info)
+    au FileType go nmap <leader>b <Plug>(go-build)
+    au FileType go nmap <leader>t <Plug>(go-test)
+    au FileType go nmap <leader>tf <Plug>(go-test-func)
+    au FileType go nmap <leader>l <Plug>(go-metalinter)
+augroup end
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+" TYPESCRIPT LANGUAGE SETTINGS
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+augroup FileType typescript
+    au FileType typescript setl shiftwidth=2
+augroup end
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+" HTML LANGUAGE SETTINGS
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+augroup FileType html
+    au FileType html setl shiftwidth=2
+augroup end
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+" C# LANGUAGE SETTINGS
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" disable ale-linting of cs files.
+let g:ale_linters = { 'cs': [] }
+
+" use OmniSharp for syntax checking cs files.
+let g:syntastic_cs_checkers = ['code_checker']
+
+" configure OmniSharp.
+let g:OmniSharp_server_path = '/opt/omnisharp-roslyn/OmniSharp.exe'
+let g:OmniSharp_selector_ui = 'ctrlp'
+augroup omnisharp_commands
+    autocmd!
+    autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
+    autocmd FileType cs nmap <leader>i :OmniSharpTypeLookup<CR>
+    autocmd FileType cs nmap gd :OmniSharpGotoDefinition<CR>
 augroup end
