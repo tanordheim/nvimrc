@@ -46,6 +46,7 @@ Plugin 'OmniSharp/omnisharp-vim'
 " autocomplete, snippets and formatting.
 Plugin 'Shougo/deoplete.nvim'
 Plugin 'zchee/deoplete-go'
+Plugin 'Robzz/deoplete-omnisharp'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'AndrewRadev/splitjoin.vim'
@@ -177,10 +178,14 @@ nnoremap <leader>a :cclose<CR>
 let g:UltiSnipsExpandTrigger = '<C-j>'
 
 " configure ale.
-let g:ale_sign_error = '⤫'
-let g:ale_sign_warning = '⚠'
+let g:ale_sign_error = '✗✗'
+let g:ale_sign_warning = '⚠⚠'
 map <C-n> :ALENextWrap<CR>
 map <C-m> :ALEPreviousWrap<CR>
+
+" configure syntastic.
+" let g:syntastic_error_symbol = '✗✗'
+" let g:syntastic_warning_symbol = '⚠⚠'
 
 " configure deoplete.
 let g:deoplete#enable_at_startup = 1
@@ -264,11 +269,16 @@ let g:ale_linters = { 'cs': [] }
 let g:syntastic_cs_checkers = ['code_checker']
 
 " configure OmniSharp.
-let g:OmniSharp_server_path = '/opt/omnisharp-roslyn/OmniSharp.exe'
+let g:OmniSharp_server_type = 'roslyn'
+let g:OmniSharp_server_path = '/opt/omnisharp-roslyn/run'
 let g:OmniSharp_selector_ui = 'ctrlp'
-augroup omnisharp_commands
-    autocmd!
-    autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
-    autocmd FileType cs nmap <leader>i :OmniSharpTypeLookup<CR>
-    autocmd FileType cs nmap gd :OmniSharpGotoDefinition<CR>
+augroup FileType cs
+    au!
+    au FileType cs setlocal omnifunc=OmniSharp#Complete
+    au FileType cs nmap <leader>i :OmniSharpTypeLookup<CR>
+    au FileType cs nmap gd :OmniSharpGotoDefinition<CR>
+    au FileType cs nmap <leader>b :OmniSharpBuild<CR>
+    au FileType cs nmap <leader>fu :OmniSharpFixUsings<CR>
+    au FileType cs nmap <leader>fi :OmniSharpFixIssue
+    au BufEnter,TextChanged,InsertLeave *.cs SyntasticCheck
 augroup end
