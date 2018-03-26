@@ -270,7 +270,7 @@ let g:syntastic_cs_checkers = ['code_checker']
 
 " configure OmniSharp.
 let g:OmniSharp_server_type = 'roslyn'
-let g:OmniSharp_server_path = '/opt/omnisharp-roslyn/run'
+let g:OmniSharp_server_path = '/opt/omnisharp-roslyn/OmniSharp.exe'
 let g:OmniSharp_selector_ui = 'ctrlp'
 augroup FileType cs
     au!
