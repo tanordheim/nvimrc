@@ -42,6 +42,7 @@ Plugin 'fatih/vim-go'
 Plugin 'mhartington/nvim-typescript'
 Plugin 'HerringtonDarkholme/yats.vim'
 Plugin 'OmniSharp/omnisharp-vim'
+Plugin 'mustache/vim-mustache-handlebars'
 
 " autocomplete, snippets and formatting.
 Plugin 'Shougo/deoplete.nvim'
